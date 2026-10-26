@@ -7,7 +7,16 @@ authors = [
     { name = "Hamza Shahid", email = "hamzashahidhb553.hb@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "fastapi>=0.162.0",
+    "platformdirs>=4.13.5",
+    "psutil>=7.2.2",
+    "pydantic-settings>=2.16.1",
+    "pypdf>=6.21.2",
+    "python-multipart>=0.0.32",
+    "sqlalchemy>=2.1.6",
+    "uvicorn[standard]>=0.54.0",
+]
 
 [project.scripts]
 clearsheaf-search = "clearsheaf_search:main"
@@ -15,3 +24,24 @@ clearsheaf-search = "clearsheaf_search:main"
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"

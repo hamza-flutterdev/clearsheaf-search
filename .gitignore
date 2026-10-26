@@ -1,6 +1,9 @@
-# Python-generated files
+# Python-generated files, builds, and packaging
 __pycache__/
 *.py[oc]
+*.py[cod]
+*.pyd
+*.so
 build/
 dist/
 wheels/
@@ -8,12 +11,14 @@ wheels/
 
 # Virtual environments
 .venv/
+venv/
 
 # Python testing and linting
 .pytest_cache/
 .ruff_cache/
 .coverage
 .coverage.*
+coverage.xml
 htmlcov/
 
 # Environment variables and secrets
@@ -21,18 +26,23 @@ htmlcov/
 .env.*
 !.env.example
 
-# Local application data and databases
+# Local application data, databases, and runtime instances
 data/
 *.sqlite
 *.sqlite3
 *.db
+instance/
 
 # Local AI models
 models/
 
-# Node.js and frontend build artifacts
+# Node.js, frontend, and package manager logs
+node_modules/
 frontend/node_modules/
 frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
 
 # Editor and operating-system files
 .vscode/
@@ -42,3 +52,9 @@ Thumbs.db
 Desktop.ini
 EOF
 
+# Temporary files and logs
+*.tmp
+*.log
+
+# Private Docs
+Implementation Guide.md
