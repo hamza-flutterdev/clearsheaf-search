@@ -1,0 +1,44 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+
+# Python testing and linting
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local application data and databases
+data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Local AI models
+models/
+
+# Node.js and frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+EOF
+
