@@ -138,27 +138,51 @@ Resource settings such as CPU threads, context tokens, maximum new tokens, and G
 
 ## Development
 
+See [Testing](#testing) for backend, frontend, and end-to-end health-check instructions.
+
+Apply backend formatting with `uv run ruff format .` from the repository root.
+
+## Testing
+
+### Backend checks
+
+Run these commands from the repository root:
+
 ```bash
+uv sync --locked
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
 ```
 
-Apply formatting with:
+The default tests do not download models or use the network. Tests that need a real model are marked `slow` and run only on demand.
+
+### Frontend checks
+
+Run these commands from the `frontend/` directory:
 
 ```bash
-uv run ruff format .
-```
-
-Default tests never download a model and never use the network. Tests that need a real model are marked `slow` and run only on demand.
-
-Frontend checks:
-
-```bash
-cd frontend
+npm ci
 npm run lint
 npm run build
 ```
+
+### Frontend-to-backend health check
+
+1. From the repository root, start the backend in one terminal:
+
+   ```bash
+   uv run uvicorn clearsheaf_search.main:app --host 127.0.0.1 --port 8000
+   ```
+
+2. Start the frontend in a second terminal:
+
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+
+3. Open the local address printed by Vite. The page should display the backend health status. You can also check the endpoint directly at `http://127.0.0.1:8000/api/v1/health`.
 
 ### Repository layout
 
@@ -181,7 +205,7 @@ clearsheaf-search/
 
 ## Roadmap
 
-- [ ] Milestone 0: project scaffold, health endpoint, CI
+- [x] Milestone 0: project scaffold, health check, CI
 - [ ] Milestone 1: SQLite schema and document metadata
 - [ ] Milestone 2: safe file storage and text extraction
 - [ ] Milestone 3: chunking and FTS5 keyword search
