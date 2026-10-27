@@ -181,7 +181,7 @@ clearsheaf-search/
 
 ## Roadmap
 
-- [ ] Milestone 0: project scaffold, health endpoint, CI
+- [x] Milestone 0: project scaffold, health check, CI
 - [ ] Milestone 1: SQLite schema and document metadata
 - [ ] Milestone 2: safe file storage and text extraction
 - [ ] Milestone 3: chunking and FTS5 keyword search
